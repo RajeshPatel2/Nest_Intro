@@ -15,8 +15,13 @@ export class UserService {
 
     async getUser(userId){
         console.log(userId)
-        const user = this.productModel.findOne({_id:userId})
+        const user = await this.productModel.findOne({_id:userId})
         // console.log('dddddddddddddddddddddddd',user)
         return user
+    }
+
+    async findByEmail(email){
+        return await this.productModel.findOne({email:email})
+      
     }
 }
